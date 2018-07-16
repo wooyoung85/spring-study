@@ -15,15 +15,20 @@ import com.wooyoung.toby_vol2.HelloController;
 public class TestNotUsedServletHelloController {
 	@Test
 	public void test() throws Exception {
-		ApplicationContext ac = new GenericXmlApplicationContext("com/wooyoung/toby_vol2/spring-servlet.xml");
-		HelloController helloController = ac.getBean(HelloController.class);
-				
-		MockHttpServletRequest req = new MockHttpServletRequest("GET", "/hello");
-		req.addParameter("name", "Spring");		
-		MockHttpServletResponse res = new MockHttpServletResponse();
-		
-		ModelAndView mav = helloController.handleRequest(req, res);
-		assertThat(mav.getViewName(), is("hello"));
-		assertThat((String)mav.getModel().get("message"), is("Hello Spring"));
+		try {
+			@SuppressWarnings("resource")
+			ApplicationContext ac = new GenericXmlApplicationContext("com/wooyoung/toby_vol2/spring-servlet.xml");
+			HelloController helloController = ac.getBean(HelloController.class);
+
+			MockHttpServletRequest req = new MockHttpServletRequest("GET", "/hello");
+			req.addParameter("name", "Spring");
+			MockHttpServletResponse res = new MockHttpServletResponse();
+
+			ModelAndView mav = helloController.handleRequest(req, res);
+			assertThat(mav.getViewName(), is("hello"));
+			assertThat((String) mav.getModel().get("message"), is("Hello Spring"));
+		} catch (Exception e) {
+			throw e;
+		}
 	}
 }

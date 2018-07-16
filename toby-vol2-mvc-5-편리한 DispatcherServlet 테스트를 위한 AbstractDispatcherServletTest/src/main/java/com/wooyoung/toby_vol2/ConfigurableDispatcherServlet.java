@@ -43,6 +43,7 @@ public class ConfigurableDispatcherServlet extends DispatcherServlet {
 		this.locations = locations;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void setRelativeLocations(Class clazz, String ...relativeLocations) {
 		String[] locations = new String[relativeLocations.length];
 		String currentPath = ClassUtils.classPackageAsResourcePath(clazz) + "/";
