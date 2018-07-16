@@ -18,6 +18,7 @@ import com.skcc.toby_spring.user.dao.UserDao;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="/test-applicationContext.xml")
 public class SpringJunitUserDaoTest {
+	
 	@Autowired
 	private UserDao dao;
 		

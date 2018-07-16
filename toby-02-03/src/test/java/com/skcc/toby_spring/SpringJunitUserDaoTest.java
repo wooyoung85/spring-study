@@ -11,7 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.datasource.SingleConnectionDataSource;
 import org.springframework.test.annotation.DirtiesContext;
@@ -25,6 +24,7 @@ import com.skcc.toby_spring.user.dao.UserDao;
 @ContextConfiguration(locations="/applicationContext.xml")
 @DirtiesContext
 public class SpringJunitUserDaoTest {
+	
 	@Autowired
 	private UserDao dao;
 	

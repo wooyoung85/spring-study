@@ -5,9 +5,11 @@ import static org.junit.Assert.assertThat;
 
 import java.sql.SQLException;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -18,8 +20,18 @@ import com.skcc.toby_spring.user.dao.UserDao;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="/applicationContext.xml")
 public class SpringJunitUserDaoTest {
+	
+	@Autowired
+	ApplicationContext context;
+	
 	@Autowired
 	private UserDao dao;
+	
+	@Before
+	public void setup() {
+		System.out.println(context);
+		System.out.println(this);
+	}
 	
 	@Test
 	public void addAndGet() throws SQLException, ClassNotFoundException {
