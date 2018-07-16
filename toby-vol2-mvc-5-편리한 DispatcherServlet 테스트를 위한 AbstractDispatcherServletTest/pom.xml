@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.wooyoung</groupId>
-	<artifactId>toby-vol2</artifactId>
+	<artifactId>toby-mvc-04</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>toby-vol2 Maven Webapp</name>
+	<name>toby-mvc-04 Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
@@ -17,12 +17,12 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
+			<artifactId>spring-web</artifactId>
 			<version>5.0.7.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
+			<artifactId>spring-webmvc</artifactId>
 			<version>5.0.7.RELEASE</version>
 		</dependency>
 		<dependency>
@@ -32,12 +32,12 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
+			<artifactId>spring-test</artifactId>
 			<version>5.0.7.RELEASE</version>
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>toby-vol2</finalName>
+		<finalName>toby-mvc-04</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
