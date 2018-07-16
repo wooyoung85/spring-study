@@ -1,4 +1,4 @@
-package com.skcc.toby_spring.user;
+package com.wooyoung.toby_spring.user;
 
 public class User {
 	String id;

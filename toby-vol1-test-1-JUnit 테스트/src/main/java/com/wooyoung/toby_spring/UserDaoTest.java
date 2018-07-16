@@ -1,12 +1,12 @@
-package com.skcc.toby_spring;
+package com.wooyoung.toby_spring;
 
 import java.sql.SQLException;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-import com.skcc.toby_spring.user.User;
-import com.skcc.toby_spring.user.dao.UserDao;
+import com.wooyoung.toby_spring.user.User;
+import com.wooyoung.toby_spring.user.dao.UserDao;
 
 public class UserDaoTest 
 {

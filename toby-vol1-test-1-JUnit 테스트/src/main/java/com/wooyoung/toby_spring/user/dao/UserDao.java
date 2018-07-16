@@ -1,4 +1,4 @@
-package com.skcc.toby_spring.user.dao;
+package com.wooyoung.toby_spring.user.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 
-import com.skcc.toby_spring.user.User;
+import com.wooyoung.toby_spring.user.User;
 
 public class UserDao {
 

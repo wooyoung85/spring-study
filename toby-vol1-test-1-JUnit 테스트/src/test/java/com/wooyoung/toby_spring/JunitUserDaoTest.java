@@ -1,4 +1,4 @@
-package com.skcc.toby_spring;
+package com.wooyoung.toby_spring;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -11,13 +11,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.dao.EmptyResultDataAccessException;
 
-import com.skcc.toby_spring.user.User;
-import com.skcc.toby_spring.user.dao.UserDao;
+import com.wooyoung.toby_spring.user.User;
+import com.wooyoung.toby_spring.user.dao.UserDao;
 
 public class JunitUserDaoTest {
 	private UserDao dao;
 
-	@SuppressWarnings("resource")
 	@Before
 	public void setup() {
 		ApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
