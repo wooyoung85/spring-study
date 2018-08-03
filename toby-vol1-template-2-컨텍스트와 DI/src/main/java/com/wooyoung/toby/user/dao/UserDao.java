@@ -13,41 +13,20 @@ import com.wooyoung.toby.user.domain.User;
 
 public class UserDao {
 	private DataSource dataSource;
+	private JdbcContext jdbcContext;
 
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
 
-	public void jdbcContextWithStatementStrategy(StatementStrategy stmt) throws SQLException {
-		Connection c = null;
-		PreparedStatement ps = null;
-
-		try {
-			c = dataSource.getConnection();
-			ps = stmt.makePreparedStatement(c);
-			ps.executeUpdate();
-		} catch (SQLException e) {
-			throw e;
-		} finally {
-			if (ps != null) {
-				try {
-					ps.close();
-				} catch (SQLException e) {
-				}
-			}
-			if (c != null) {
-				try {
-					c.close();
-				} catch (SQLException e) {
-				}
-			}
-		}
+	public void setJdbcContext(JdbcContext jdbcContext) {
+		this.jdbcContext = jdbcContext;
 	}
 
 	// 전략 클래스(AddStatement)를 익명 내부 클래스로 전환
-	// 내부 클래스에서 외부의 변수를 사용할 때 외부 변수는 반드시 final로 선언 
+	// 내부 클래스에서 외부의 변수를 사용할 때 외부 변수는 반드시 final로 선언
 	public void add(final User user) throws SQLException {
-		jdbcContextWithStatementStrategy(new StatementStrategy() {
+		jdbcContext.workWithStatementStrategy(new StatementStrategy() {
 			public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
 				PreparedStatement ps = c.prepareStatement("insert into users(id, name, password) values(?,?,?)");
 				ps.setString(1, user.getId());
@@ -84,10 +63,10 @@ public class UserDao {
 		return user;
 	}
 
-	// Context에게 DeleteAllStatement 전략 전달 
+	// Context에게 DeleteAllStatement 전략 전달
 	public void deleteAll() throws SQLException {
-		StatementStrategy st = new DeleteAllStatement();
-		jdbcContextWithStatementStrategy(st);
+		StatementStrategy stmt = new DeleteAllStatement();
+		jdbcContext.workWithStatementStrategy(stmt);
 	}
 
 	public int getCount() throws SQLException {
